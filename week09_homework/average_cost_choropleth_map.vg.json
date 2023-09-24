@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-     "title": "Global daily cost of a nutrient adequate diet, 2017",
+     "title": "Global Daily Cost of a Nutrient Adequate Diet, 2017",
      "width": 800,
      "height": 400,
      "data": {
