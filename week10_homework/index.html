@@ -12,9 +12,47 @@
 
 </head>
 <body>
-  
-<div id="choropleth_map"></div>
-<div id="line_graph"></div>
+
+  <div class="page">
+
+    <!-- Title and subtitle -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Bullying trends across Victoria (2008-2016)</h1>
+        <p>This data has been collected from annual, state-wide, <i>Attitudes to School</i> surveys, which measures students
+          experiences at school. These are the responses to the question <i>"I have been bullied
+          recently at school"</i> from students in year 7 to 9, seperated by Local Government Area (LGA).</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Choropleth map -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="choropleth_map" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- Caption/small text -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <p>Bullying statistics across Victoria vary greatly, with some correlation to location. In most regions,
+          neighbouring LGAs have similar bullying rates and Metropolitan Melbourne has lower rates than in Regional
+          Victoria.
+          However, in 2016, the LGA with the highest reported rate (30.5%), Northern Grampians near the western border,
+          is directly adjacent to the LGA with the lowest rate (Southern Grampians, 4.3%). </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+     <!-- Line graph -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="line_graph" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
 
 <script type="text/javascript">
 
