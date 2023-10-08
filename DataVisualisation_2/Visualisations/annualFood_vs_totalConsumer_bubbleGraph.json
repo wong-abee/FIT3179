@@ -1,0 +1,115 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 300,
+    "title": "Annual Food Expenditure vs Total Consumer Expenditure",
+    "data": {
+        "url": "https://raw.githubusercontent.com/wong-abee/FIT3179/main/DataVisualisation_2/Data/food-expenditure-vs-gdp.csv"
+    },
+    "params": [
+        {
+            "name": "Year",
+            "value": 2021,
+            "bind": {
+                "input": "range",
+                "min": 2017,
+                "max": 2021,
+                "step": 1,
+                "name": "Select year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Year == Year"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "Total consumer expenditure",
+            "type": "quantitative",
+            "title": "Total consumer expenditure $"
+        },
+        "y": {
+            "field": "Total food expenditure",
+            "title": "Total food expenditure $",
+            "type": "quantitative"
+        }
+    },
+    "layer": [
+        {
+            "mark": "circle",
+            "encoding": {
+                "color": {
+                    "field": "Entity",
+                    "type": "nominal",
+                    "legend": null
+                },
+                "tooltip": [
+                    {
+                        "field": "Entity",
+                        "type": "nominal",
+                        "title": "County: "
+                    },
+                    {
+                        "field": "Total consumer expenditure",
+                        "type": "quantitative",
+                        "format": "$,.2f"
+                    },
+                    {
+                        "field": "Total food expenditure",
+                        "type": "quantitative",
+                        "format": "$,.2f"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "line-top",
+                "dx": 10,
+                "fontSize": 11
+            },
+            "encoding": {
+                "text": {
+                    "field": "Entity",
+                    "type": "nominal"
+                },
+                "color": {
+                    "value": "black"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum['Entity'] == 'Switzerland'||datum['Entity'] == 'Australia'||datum['Entity'] == 'Malaysia'||datum['Entity'] == 'New Zealand'||datum['Entity'] == 'United Kingdom'||datum['Entity'] == 'United States'||datum['Entity'] == 'Singapore'||datum['Entity'] == 'India'",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        },
+        "axis": {
+            "labelFont": "Oxygen",
+            "titleFont": "Oxygen"
+        },
+        "legend": {
+            "labelFont": "Oxygen",
+            "titleFont": "Oxygen"
+        },
+        "header": {
+            "labelFont": "Oxygen",
+            "titleFont": "Oxygen"
+        },
+        "title": {
+            "font": "Oxygen",
+            "fontSize": 16,
+            "fontWeight": 600
+        }
+    }
+}
