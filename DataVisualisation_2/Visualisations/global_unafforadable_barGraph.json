@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/wong-abee/FIT3179/main/DataVisualisation_2/Data/CLEAN2-number-healthy-diet-unaffordable.csv"
+  },
+  "title": "Figure 4. Percentage of Population Unable to Afford a Healthy Diet",
+  "width": "container",
+  "height": 300,
+  "params": [
+    {
+      "name": "Year",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2017,
+        "max": 2021,
+        "step": 1,
+        "name": "Select year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Year == Year"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "width": {
+      "band": 0.7
+    },
+    "cornerRadiusEnd": 6
+  },
+  "encoding": {
+    "x": {
+      "field": "Entity",
+      "type": "nominal",
+      "title": "Country",
+      "sort": "-y"
+    },
+    "y": {
+      "field": "Percentage",
+      "title": "Percentage of population",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Entity",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Malawi",
+          "Niger",
+          "Rwanda",
+          "India",
+          "Indonesia",
+          "World",
+          "China",
+          "Malaysia",
+          "United States",
+          "Australia"
+        ],
+        "range": [
+          "#f58231",
+          "#ffe119",
+          "#000075",
+          "#4363d8",
+          "#dcbeff",
+          "#911eb4",
+          "#f032e6",
+          "#4363d8",
+          "#42d4f4",
+          "#e6194B"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Entity",
+        "type": "ordinal",
+        "title": "Country "
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage % "
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "legend": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "header": {
+      "labelFont": "Oxygen",
+      "titleFont": "Oxygen"
+    },
+    "title": {
+      "font": "Oxygen",
+      "fontSize": 15,
+      "fontWeight": 600
+    }
+  }
+}
